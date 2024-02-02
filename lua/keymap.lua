@@ -31,3 +31,9 @@ vim.keymap.set('n', '<ESC><ESC>', ':<C-u>set nohlsearch!<CR>')
 -- set regex very magic
 vim.keymap.set('n', '/', '/\\v', { noremap = true, silent = false })
 vim.keymap.set('n', '?', '?\\v', { noremap = true, silent = false })
+
+function enable_very_magic()
+  return "%s/\\v "
+end
+
+vim.api.nvim_set_keymap('c', '%s/', "v:lua.enable_very_magic()", { noremap = true, expr = true })
