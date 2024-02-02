@@ -1,5 +1,6 @@
 -- 表示
 vim.opt.ambiwidth = "single"
+-- vim.o.ambiwidth = 'double'
 
 -- 番号表示
 vim.opt.number = true
