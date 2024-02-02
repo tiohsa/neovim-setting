@@ -1,4 +1,6 @@
 -- 表示
+vim.opt.ambiwidth = "single"
+
 -- 番号表示
 vim.opt.number = true
 
@@ -49,8 +51,24 @@ vim.opt.backspace = 'start', 'eol', 'indent'
 -- フォーマット
 vim.opt.fileformats = 'unix', 'dos', 'mac'
 
--- クリップボード連携
-vim.opt.clipboard:append({ unnamedeplus = true })
-
 -- マウス有効
 vim.opt.mouse = 'a'
+
+---- クリップボード連携
+vim.opt.clipboard:append({ unnamedeplus = true })
+if vim.g.vscode then
+  vim.g.clipboard = vim.g.vscode_clipboard
+else
+  vim.g.clipboard = {
+    name = 'WslClipboard',
+    copy = {
+      ['+'] = 'xsel -bi',
+      ['*'] = 'xsel -bi',
+    },
+    paste = {
+      ['+'] = 'xsel -bo',
+      ['*'] = function() return vim.fn.systemlist('xsel -bo | tr -d "\r"') end,
+    },
+    cache_enabled = 1,
+  }
+end
