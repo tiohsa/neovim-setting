@@ -37,3 +37,7 @@ function enable_very_magic()
 end
 
 vim.api.nvim_set_keymap('c', '%s/', "v:lua.enable_very_magic()", { noremap = true, expr = true })
+
+-- vim.keymap.set('n', 'yy', '"*yy', { noremap = true, silent = false })
+-- vim.keymap.set('n', 'y', '"*y', { noremap = true, silent = false })
+-- vim.keymap.set('n', 'p', '"*p', { noremap = true, silent = false })
