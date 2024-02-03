@@ -56,7 +56,7 @@ vim.opt.fileformats = 'unix', 'dos', 'mac'
 vim.opt.mouse = 'a'
 
 ---- クリップボード連携
-vim.opt.clipboard:append({ unnamedeplus = true })
+vim.opt.clipboard:append({ unnamed = true })
 if vim.g.vscode then
   vim.g.clipboard = vim.g.vscode_clipboard
 else
